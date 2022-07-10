@@ -1,5 +1,6 @@
 package com.macro.mall.service.impl;
 
+import cn.hutool.core.util.StrUtil;
 import com.github.pagehelper.PageHelper;
 import com.macro.mall.mapper.CmsSubjectMapper;
 import com.macro.mall.model.CmsSubject;
@@ -12,7 +13,7 @@ import org.springframework.util.StringUtils;
 import java.util.List;
 
 /**
- * 商品专题Service实现类
+ * 商品专题管理Service实现类
  * Created by macro on 2018/6/1.
  */
 @Service
@@ -30,7 +31,7 @@ public class CmsSubjectServiceImpl implements CmsSubjectService {
         PageHelper.startPage(pageNum, pageSize);
         CmsSubjectExample example = new CmsSubjectExample();
         CmsSubjectExample.Criteria criteria = example.createCriteria();
-        if (!StringUtils.isEmpty(keyword)) {
+        if (!StrUtil.isEmpty(keyword)) {
             criteria.andTitleLike("%" + keyword + "%");
         }
         return subjectMapper.selectByExample(example);

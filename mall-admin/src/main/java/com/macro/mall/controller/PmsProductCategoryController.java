@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * 商品分类模块Controller
+ * 商品分类管理Controller
  * Created by macro on 2018/4/26.
  */
 @Controller
@@ -26,7 +26,7 @@ public class PmsProductCategoryController {
     @Autowired
     private PmsProductCategoryService productCategoryService;
 
-    @ApiOperation("添加产品分类")
+    @ApiOperation("添加商品分类")
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult create(@Validated @RequestBody PmsProductCategoryParam productCategoryParam) {
